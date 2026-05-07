@@ -19,7 +19,11 @@ namespace TaskManager
 
             builder.Services.AddControllers();
             builder.Services.AddDbContext<TaskManagerDbContext>(
-                options => options.UseSqlServer(builder.Configuration.GetConnectionString("TaskManagerDatabase"))
+                options => options.UseSqlServer(builder.Configuration.GetConnectionString("TaskManagerDatabase"),
+                sqlOptions => sqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(30),
+            errorNumbersToAdd: null))
                 );
             builder.Services.AddOpenApi();
             builder.Services.AddScoped<IAuthService, AuthService>();
@@ -38,7 +42,7 @@ namespace TaskManager
                     ValidateIssuerSigningKey = true
                 };
 
-             
+
             });
             builder.Services.AddCors(options =>
             {
