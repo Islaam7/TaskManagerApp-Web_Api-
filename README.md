@@ -1,6 +1,6 @@
 # 📋 TaskManagerApp - ASP.NET Core Web API
 
-A secure and scalable **Task Management RESTful API** built using **ASP.NET Core Web API**, **Entity Framework Core**, **SQLite**, and **JWT Authentication**.
+A secure and scalable **Task Management RESTful API** built using **ASP.NET Core Web API**, **Entity Framework Core**, **SQL**, and **JWT Authentication**.
 
 This project allows users to register, authenticate, and manage their personal tasks securely through a clean RESTful API architecture.
 
